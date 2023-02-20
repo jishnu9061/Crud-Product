@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\mycontroller;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,3 +18,17 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::any('insertRead','FormController@index');
+
+Route::any('insertData',[mycontroller::class,'insert']);
+
+Route::any('insertRead',[mycontroller::class,'readdata']);
+
+Route::any('deleteData/{Id}',[mycontroller::class,'deletedata']);
+
+Route::any('editData/{Id}',[mycontroller::class,'editpage']);
+
+Route::any('/update', 'FormController@index');
+
+
